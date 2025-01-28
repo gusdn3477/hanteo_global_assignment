@@ -1,35 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
 
+const headerMenu = [
+  {
+    id: 1,
+    title: '챠트',
+    url: 'charts',
+  },
+  {
+    id: 2,
+    title: 'Whook',
+    url: 'whook',
+  },
+  {
+    id: 3,
+    title: '이벤트',
+    url: 'events',
+  },
+  {
+    id: 4,
+    title: '뉴스',
+    url: 'news',
+  },
+  {
+    id: 5,
+    title: '스토어',
+    url: 'store',
+  },
+  {
+    id: 6,
+    title: '충전소',
+    url: 'charge',
+  },
+];
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="flex h-full w-full flex-col">
+      <header className="h-[54px] bg-red-200">
+        <ul className="flex h-full">
+          {headerMenu.map((menu) => (
+            <li key={menu.id} className="flex items-center">
+              {menu.title}
+            </li>
+          ))}
+        </ul>
+      </header>
+      <div className="h-[200px]">Carousel</div>
+      <div className="flex-1 overflow-y-auto bg-gray-200">콘텐츠 큐레이션</div>
+
+      <footer className="h-[74px] bg-gray-300">푸터</footer>
+    </div>
+  );
 }
 
-export default App
+export default App;
