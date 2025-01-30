@@ -31,7 +31,7 @@ const Carousel = () => {
             <img
               src={`${card.imageUrl}` || ''}
               alt={card.title}
-              className="h-[160px] w-full rounded-2xl"
+              className="h-[115px] w-full rounded-2xl"
             />
           </div>
           <section className="mt-3 flex flex-col">
