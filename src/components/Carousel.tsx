@@ -19,10 +19,14 @@ const Carousel = () => {
     dots: true,
   };
 
+  const handleBannerClick = (url: string) => {
+    window.open(url, '_blank');
+  };
+
   return (
     <MySlider {...settings}>
       {cardEvents.map((card) => (
-        <div key={card.id} className="mt-3 bg-white">
+        <div key={card.id} className="mt-3 bg-white" onClick={() => handleBannerClick(card.link)}>
           <div className="flex items-center justify-center">
             <img
               src={`${card.imageUrl}` || ''}
