@@ -29,11 +29,11 @@ const SwipeNavigator = ({ children }: { children: React.ReactNode }) => {
       const deltaX = touchStartX.current - touchEndX.current;
       const currentIndex = pages.indexOf(location.pathname);
 
-      if (deltaX > 150) {
+      if (deltaX > 105) {
         // 👉 오른쪽 스와이프 (다음 페이지)
         const nextIndex = (currentIndex + 1) % pages.length;
         navigate(pages[nextIndex]);
-      } else if (deltaX < -150) {
+      } else if (deltaX < -105) {
         // 👈 왼쪽 스와이프 (이전 페이지)
         const prevIndex = (currentIndex - 1 + pages.length) % pages.length;
         navigate(pages[prevIndex]);
