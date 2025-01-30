@@ -12,7 +12,8 @@
 }
 
 .slick-track,
-.slick-list {
+.slick-list,
+.slick-dots {
   background-color: white;
 }
 
