@@ -8,11 +8,11 @@ interface ContentsItemProps {
 
 export const ContentsItem = ({ title, description, imageUrl }: ContentsItemProps) => {
   return (
-    <div className="flex items-center justify-between p-4">
-      <img src={imageUrl} width={45} height={45} about={description} />
-      <section>
-        <strong>{title}</strong>
-        <p>{description}</p>
+    <div className="flex w-full items-center justify-between p-4">
+      <img src={imageUrl} alt={description} className="h-[40px] w-[55px]" />
+      <section className="ml-2 flex-1 flex-col truncate">
+        <strong className="truncate">{title}</strong>
+        <p className="truncate">{description}</p>
       </section>
     </div>
   );
