@@ -21,3 +21,12 @@
   color: pink;
   opacity: 1;
 }
+
+.slick-slider {
+  height: 200px;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: 5px;
+}
