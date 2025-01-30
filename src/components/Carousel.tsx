@@ -9,7 +9,7 @@ const MySlider = Slider as unknown as React.FC<any>;
 
 const Carousel = () => {
   const settings = {
-    infinite: false,
+    infinite: true,
     speed: 500, // 슬라이드 속도
     slidesToShow: 1, // 한 번에 보여줄 슬라이드 수
     slidesToScroll: 1, // 한 번에 스크롤할 슬라이드 수
@@ -22,7 +22,7 @@ const Carousel = () => {
   return (
     <MySlider {...settings}>
       {cardEvents.map((card) => (
-        <div key={card.id} className="mt-3">
+        <div key={card.id} className="mt-3 bg-white">
           <div className="flex items-center justify-center">
             <img
               src={`${card.imageUrl}` || ''}
