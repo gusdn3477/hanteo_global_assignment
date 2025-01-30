@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
+import spinner from '../assets/spinner.svg';
 import { contentsData } from '../data/contentsData';
 
 interface ContentsItemProps {
@@ -5,6 +8,8 @@ interface ContentsItemProps {
   description: string;
   imageUrl: string;
 }
+
+type ContentType = typeof contentsData;
 
 export const ContentsItem = ({ title, description, imageUrl }: ContentsItemProps) => {
   return (
@@ -19,9 +24,32 @@ export const ContentsItem = ({ title, description, imageUrl }: ContentsItemProps
 };
 
 export const ContentsList = () => {
+  const [page, setPage] = useState(0);
+  const [contents, setContets] = useState<ContentType>([]);
+  const countPerPage = 6;
+  const hasNext = contentsData.length >= page * countPerPage;
+
+  const { ref, inView } = useInView({ threshold: 1 });
+
+  const loadMoreItems = () => {
+    setTimeout(() => {
+      setContets([
+        ...contents,
+        ...contentsData.slice(page * countPerPage, page * countPerPage + countPerPage),
+      ]);
+      setPage((page) => page + 1);
+    }, 1000);
+  };
+
+  useEffect(() => {
+    if (inView) {
+      loadMoreItems();
+    }
+  }, [inView]);
+
   return (
     <>
-      {contentsData.map((content) => (
+      {contents.map((content) => (
         <ContentsItem
           key={content.id}
           title={content.title}
@@ -29,6 +57,11 @@ export const ContentsList = () => {
           imageUrl={content.imageUrl}
         />
       ))}
+      {hasNext && (
+        <div ref={ref} className="flex items-center justify-center">
+          <img src={spinner} alt="spinner" className="h-[30px] w-[30px]" />
+        </div>
+      )}
     </>
   );
 };
