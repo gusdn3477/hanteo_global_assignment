@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Charts from './Charts';
 import Layout from './components/Layout';
 import SwipeNavigator from './components/SwipeNavigator';
+import Charts from './pages/Charts';
 
 export default function Router() {
   return (

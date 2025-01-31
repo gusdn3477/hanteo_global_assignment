@@ -1,5 +1,5 @@
-import Carousel from './components/Carousel';
-import { ContentsList } from './components/Contents';
+import Carousel from '../components/Carousel';
+import { ContentsList } from '../components/Contents';
 
 function Charts() {
   return (
